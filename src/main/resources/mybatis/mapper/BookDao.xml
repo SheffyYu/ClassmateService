@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main.java.dao.BookDao">
+
+    <!--添加默认同学录-->
+    <insert id="insertDefaultBook" parameterType="main.java.bean.BookBean">
+        insert INTO
+        t_book(book_id,user_id)
+        VALUES
+        (#{bookId},#{userId});
+    </insert>
+
+    <select id="selectAllBookByUserId" resultType="main.java.bean.BookBean" parameterType="String">
+        select * from t_book where user_id = #{userId}
+    </select>
+</mapper>
