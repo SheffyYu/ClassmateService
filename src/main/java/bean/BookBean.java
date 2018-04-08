@@ -7,6 +7,15 @@ public class BookBean {
 
     public String BookId;
     public String UserId;
+    public int ClassmateCount;
+
+    public int getClassmateCount() {
+        return ClassmateCount;
+    }
+
+    public void setClassmateCount(int classmateCount) {
+        ClassmateCount = classmateCount;
+    }
 
     public String getBookId() {
         return BookId;
@@ -29,6 +38,7 @@ public class BookBean {
         return "BookBean[" +
                 "BookId=" + BookId +
                 ", UserId=" + UserId +
+                ",ClassmateCount="+ClassmateCount+
                 "]";
     }
 }

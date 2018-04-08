@@ -7,9 +7,9 @@
     <!--添加默认同学录-->
     <insert id="insertDefaultBook" parameterType="main.java.bean.BookBean">
         insert INTO
-        t_book(book_id,user_id)
+        t_book(book_id,user_id,classmate_count)
         VALUES
-        (#{bookId},#{userId});
+        (#{bookId},#{userId},#{classmateCount});
     </insert>
 
     <select id="selectAllBookByUserId" resultType="main.java.bean.BookBean" parameterType="String">
