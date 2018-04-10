@@ -6,4 +6,12 @@
     <select id="selectItemListByBookId" resultType="main.java.bean.ClassmateBean" parameterType="String">
         select * from t_classmate where book_id = #{bookId}
     </select>
+
+    <!--添加同学-->
+    <insert id="insertClassmate" parameterType="main.java.bean.ClassmateBean">
+        insert INTO
+        t_classmate(book_id,classmate_name,sex,birthday,constellation,phone,qq,address,leave_word,your_word,blood_group,hobby)
+        VALUES
+        (#{bookId},#{classmateName},#{sex},#{birthday},#{constellation},#{phone},#{qq},#{address},#{leaveWord},#{yourWord},#{bloodGroup},#{hobby});
+    </insert>
 </mapper>

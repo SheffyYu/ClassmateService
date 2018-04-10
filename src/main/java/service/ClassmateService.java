@@ -20,4 +20,13 @@ public class ClassmateService {
     public List<ClassmateBean> getItemListByBookId(String bookId){
         return classmateDao.selectItemListByBookId(bookId);
     }
+
+    //添加同学
+    public ClassmateBean createClassmate(ClassmateBean classmateBean){
+        System.out.println("!!!!!!!");
+        classmateDao.insertClassmate(classmateBean);
+        System.out.println(classmateBean.toString());
+        System.out.println("添加成功");
+        return classmateBean;
+    }
 }
