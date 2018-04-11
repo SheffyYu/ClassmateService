@@ -14,4 +14,6 @@
         VALUES
         (#{bookId},#{classmateName},#{sex},#{birthday},#{constellation},#{phone},#{qq},#{address},#{leaveWord},#{yourWord},#{bloodGroup},#{hobby});
     </insert>
+
+
 </mapper>

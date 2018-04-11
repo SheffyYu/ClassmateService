@@ -15,4 +15,14 @@
     <select id="selectAllBookByUserId" resultType="main.java.bean.BookBean" parameterType="String">
         select * from t_book where user_id = #{userId}
     </select>
+
+    <!--更新添加的count-->
+    <update id="updateAddItemCount" parameterType="String">
+        UPDATE t_book SET classmate_count=classmate_count+1 WHERE book_id=#{bookId};
+    </update>
+
+    <!--更新删除dcount-->
+    <update id="updateDeleteItemCount" parameterType="String">
+        UPDATE t_book SET classmate_count=classmate_count-1 WHERE book_id=#{bookId};
+    </update>
 </mapper>

@@ -28,4 +28,14 @@ public class BookService {
         return bookDao.selectAllBookByUserId(userId);
     }
 
+    //更新添加操作的item count
+    public void setAddItemCount(String bookId){
+        bookDao.updateAddItemCount(bookId);
+    }
+
+    //更新删除操作的item count
+    public void setDeleteItemCount(String bookId){
+        bookDao.updateDeleteItemCount(bookId);
+    }
+
 }

@@ -2,6 +2,7 @@ package main.java.web;
 
 import com.google.gson.Gson;
 import main.java.bean.ClassmateBean;
+import main.java.service.BookService;
 import main.java.service.ClassmateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,8 @@ import java.util.List;
 public class ClassmateController {
     @Resource(name = "classmateService")
     private ClassmateService classmateService;
+    @Resource(name = "bookService")
+    private BookService bookService;
 
     //获取姓名和性别的列表
     @RequestMapping(value = "/getItemListByBookId.action")
@@ -43,6 +46,10 @@ public class ClassmateController {
         //调用service保存数据
         ClassmateBean classmateBean=classmateService.createClassmate(o);
         System.out.println("添加成功");
+
+        //更新count
+        bookService.setAddItemCount(classmateBean.getBookId());
+
         return classmateBean;
     }
 }
