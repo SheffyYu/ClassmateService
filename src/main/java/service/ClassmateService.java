@@ -29,4 +29,12 @@ public class ClassmateService {
         System.out.println("添加成功");
         return classmateBean;
     }
+
+    //删除同学
+    public ClassmateBean deleteClassmate(ClassmateBean classmateBean){
+        classmateDao.deleteClassmate(classmateBean);
+        System.out.println(classmateBean.toString());
+        System.out.println("删除成功");
+        return classmateBean;
+    }
 }

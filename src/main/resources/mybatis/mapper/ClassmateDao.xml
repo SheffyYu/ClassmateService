@@ -15,5 +15,9 @@
         (#{bookId},#{classmateName},#{sex},#{birthday},#{constellation},#{phone},#{qq},#{address},#{leaveWord},#{yourWord},#{bloodGroup},#{hobby});
     </insert>
 
+    <!--删除同学-->
+    <delete id="deleteClassmate" parameterType="main.java.bean.ClassmateBean">
+        DELETE FROM t_classmate WHERE book_id=#{bookId} AND classmate_name=#{classmateName} AND sex=#{sex} AND birthday=#{birthday} AND constellation=#{constellation} AND phone=#{phone} AND qq=#{qq} AND address=#{address} AND leave_word=#{leaveWord} AND your_word=#{yourWord} AND blood_group=#{bloodGroup} AND hobby=#{hobby}
+    </delete>
 
 </mapper>

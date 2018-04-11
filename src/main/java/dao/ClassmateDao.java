@@ -15,4 +15,7 @@ public interface ClassmateDao {
 
     //添加同学
     void insertClassmate(ClassmateBean classmateBean);
+
+    //删除同学
+    void deleteClassmate(ClassmateBean classmateBean);
 }

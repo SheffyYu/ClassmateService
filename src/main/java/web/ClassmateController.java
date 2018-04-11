@@ -52,4 +52,24 @@ public class ClassmateController {
 
         return classmateBean;
     }
+
+    //删除同学
+    @RequestMapping(value = "/deleteClassmate.action")
+    public @ResponseBody ClassmateBean deleteClassmate(@RequestBody String json){
+        // 获取到 客户端提交的json 文本: spring 直接赋值给String json 参数
+
+        // 转换成 java 对象
+        Gson gson=new Gson();
+        ClassmateBean o=gson.fromJson(json,ClassmateBean.class);
+        System.out.println("begin--delete : " + o);
+
+        //调用service删除数据
+        ClassmateBean classmateBean=classmateService.deleteClassmate(o);
+        System.out.println("删除成功");
+
+        //更新count
+        bookService.setDeleteItemCount(classmateBean.getBookId());
+
+        return classmateBean;
+    }
 }
