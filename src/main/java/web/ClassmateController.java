@@ -72,4 +72,14 @@ public class ClassmateController {
 
         return classmateBean;
     }
+
+    //获取所有同学
+    @RequestMapping(value = "/getAllClassmateByUserId.action")
+    public @ResponseBody List<ClassmateBean> getAllClassmateByUserId(String userId){
+        //获取列表
+        List<ClassmateBean> classmateList=classmateService.getItemListByBookId(userId);
+        System.out.println(classmateList);
+        // 将同学录列表以 json 形式返回到客户端
+        return classmateList;
+    }
 }

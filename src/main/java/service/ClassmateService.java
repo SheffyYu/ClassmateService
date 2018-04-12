@@ -37,4 +37,9 @@ public class ClassmateService {
         System.out.println("删除成功");
         return classmateBean;
     }
+
+    //获取所有同学
+    public List<ClassmateBean> getAllClassmateByUserId(String userId){
+        return classmateDao.selectAllClassmateByUserId(userId);
+    }
 }

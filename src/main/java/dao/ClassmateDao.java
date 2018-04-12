@@ -18,4 +18,7 @@ public interface ClassmateDao {
 
     //删除同学
     void deleteClassmate(ClassmateBean classmateBean);
+
+    //获取所有同学
+    List<ClassmateBean> selectAllClassmateByUserId(String userId);
 }
