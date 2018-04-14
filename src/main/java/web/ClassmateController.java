@@ -1,6 +1,7 @@
 package main.java.web;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import main.java.bean.ClassmateBean;
 import main.java.service.BookService;
 import main.java.service.ClassmateService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class ClassmateController {
     public @ResponseBody List<ClassmateBean> getItemListByBookId(String bookId){
         //获取列表
         List<ClassmateBean> classmateList=classmateService.getItemListByBookId(bookId);
-        System.out.println(classmateList);
+        System.out.println("获取目录："+classmateList);
         // 将同学录列表以 json 形式返回到客户端
         return classmateList;
     }
@@ -51,6 +53,19 @@ public class ClassmateController {
         bookService.setAddItemCount(classmateBean.getBookId());
 
         return classmateBean;
+    }
+
+    //更新同学
+    @RequestMapping(value = "updateClassmate.action")
+    public @ResponseBody ClassmateBean updateClassmate(@RequestBody String json){
+        Gson gson=new Gson();
+        List<ClassmateBean> cbl=new ArrayList<ClassmateBean>();
+        cbl=gson.fromJson(json,new TypeToken<List<ClassmateBean>>(){}.getType());
+        System.out.println("list："+cbl.toString());
+        classmateService.updateClassmate(cbl);
+        System.out.println("更新成功");
+        System.out.println("新："+cbl.get(1));
+        return cbl.get(1);
     }
 
     //删除同学
@@ -77,8 +92,8 @@ public class ClassmateController {
     @RequestMapping(value = "/getAllClassmateByUserId.action")
     public @ResponseBody List<ClassmateBean> getAllClassmateByUserId(String userId){
         //获取列表
-        List<ClassmateBean> classmateList=classmateService.getItemListByBookId(userId);
-        System.out.println(classmateList);
+        List<ClassmateBean> classmateList=classmateService.getAllClassmateByUserId(userId);
+        System.out.println("获取所有同学："+classmateList);
         // 将同学录列表以 json 形式返回到客户端
         return classmateList;
     }

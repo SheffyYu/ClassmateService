@@ -30,6 +30,12 @@ public class ClassmateService {
         return classmateBean;
     }
 
+    //更新同学
+    public void updateClassmate(List<ClassmateBean> cblist){
+        classmateDao.deleteClassmate(cblist.get(0));
+        classmateDao.insertClassmate(cblist.get(1));
+    }
+
     //删除同学
     public ClassmateBean deleteClassmate(ClassmateBean classmateBean){
         classmateDao.deleteClassmate(classmateBean);
