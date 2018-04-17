@@ -26,11 +26,12 @@ public class UserController {
     @Resource(name = "bookService")
     private BookService bookService;
 
+
+
     @RequestMapping(value = "/getUserByUserId.action")
     public @ResponseBody UserBean getUserByUserId(String userId){
         // 调用 service ,获取用户名和密码
         UserBean user=userService.getUserByUserId(userId);
-
         System.out.println(user);
         // 将用户类以 json 形式返回到客户端
         return user;

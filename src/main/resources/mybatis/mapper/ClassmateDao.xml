@@ -2,27 +2,32 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="main.java.dao.ClassmateDao">
-
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
     <select id="selectItemListByBookId" resultType="main.java.bean.ClassmateBean" parameterType="String">
         select * from t_classmate where book_id = #{bookId}
     </select>
-
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
     <!--添加同学-->
     <insert id="insertClassmate" parameterType="main.java.bean.ClassmateBean">
         insert INTO
-        t_classmate(book_id,classmate_name,sex,birthday,constellation,phone,qq,address,leave_word,your_word,blood_group,hobby)
+        t_classmate(book_id,user_id,classmate_name,sex,birthday,constellation,phone,qq,address,leave_word,your_word,blood_group,hobby)
         VALUES
-        (#{bookId},#{classmateName},#{sex},#{birthday},#{constellation},#{phone},#{qq},#{address},#{leaveWord},#{yourWord},#{bloodGroup},#{hobby});
+        (#{bookId},#{userId},#{classmateName},#{sex},#{birthday},#{constellation},#{phone},#{qq},#{address},#{leaveWord},#{yourWord},#{bloodGroup},#{hobby});
     </insert>
 
     <!--删除同学-->
     <delete id="deleteClassmate" parameterType="main.java.bean.ClassmateBean">
-        DELETE FROM t_classmate WHERE book_id=#{bookId} AND classmate_name=#{classmateName} AND sex=#{sex} AND birthday=#{birthday} AND constellation=#{constellation} AND phone=#{phone} AND qq=#{qq} AND address=#{address} AND leave_word=#{leaveWord} AND your_word=#{yourWord} AND blood_group=#{bloodGroup} AND hobby=#{hobby}
+        DELETE FROM t_classmate WHERE book_id=#{bookId} AND user_id=#{userId} AND classmate_name=#{classmateName} AND sex=#{sex} AND birthday=#{birthday} AND constellation=#{constellation} AND phone=#{phone} AND qq=#{qq} AND address=#{address} AND leave_word=#{leaveWord} AND your_word=#{yourWord} AND blood_group=#{bloodGroup} AND hobby=#{hobby}
     </delete>
+
+    <!--删除同学根据BOOK-->
+    <delete id="deleteClassmateByBookId" parameterType="main.java.bean.BookBean">
+        DELETE FROM t_classmate WHERE book_id=#{bookId} and user_id=#{userId}
+    </delete>
+
 
     <!--获取所有同学-->
     <select id="selectAllClassmateByUserId" parameterType="String" resultType="main.java.bean.ClassmateBean">
-        SELECT * FROM t_classmate WHERE book_id in (
-        SELECT book_id FROM t_book WHERE user_id=#{userId})
+        SELECT * FROM t_classmate WHERE user_id=#{userId}
     </select>
 </mapper>

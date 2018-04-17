@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import main.java.bean.BookBean;
 import main.java.bean.UserBean;
 import main.java.service.BookService;
+import main.java.service.ClassmateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,18 +23,46 @@ public class BookController {
 
     @Resource(name = "bookService")
     private BookService bookService;
-/**
- * 为了获取userId，此处要在userservice中调用
-    @RequestMapping(value="/createDefaultBook.action")
-    public @ResponseBody BookBean createDefaultBook(){
+    @Resource(name = "classmateService")
+    private ClassmateService classmateService;
+
+    //添加同学录
+    @RequestMapping(value="/createBook.action")
+    public @ResponseBody BookBean createBook(@RequestBody String json){
+
+        Gson gson=new Gson();
+        BookBean o=gson.fromJson(json,BookBean.class);
+        System.out.println("begin--delete : " + o);
 
         // 调用 Service保存数据
-       bookBean = bookService.createDefaultBook();
+       bookService.createBook(o);
 
+        BookBean bookBean =o;
         System.out.println("注册完成");
         return bookBean;
     }
-*/
+
+    //删除同学录
+    @RequestMapping(value = "/deleteBook.action")
+    public @ResponseBody BookBean deleteBook(@RequestBody String json){
+        Gson gson=new Gson();
+        BookBean book=gson.fromJson(json,BookBean.class);
+        System.out.println("begin--delete : " + book);
+
+
+        //删除classmate
+        classmateService.deleteClassmateByBookId(book);
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //删除book
+        bookService.deleteBook(book);
+
+
+
+        System.out.println("删除成功");
+        return book;
+    }
+
+    //获取所有同学录
     @RequestMapping(value = "/getAllBookByUserId.action")
     public @ResponseBody List<BookBean> getAllBookByUserId(String userId){
         //调用service获取同学录列表

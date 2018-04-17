@@ -17,8 +17,10 @@ public class UserService {
     @Resource(name="userDao")
     private UserDao userDao;
 
+
     public UserBean getUserByUserId(String userId){
-        return userDao.selectByUserId(userId);
+        UserBean u=userDao.selectByUserId(userId);
+        return u;
     }
 
     public UserBean createUser(UserBean userBean){

@@ -12,6 +12,14 @@
         (#{bookId},#{userId},#{classmateCount});
     </insert>
 
+    <!--添加同学录-->
+    <insert id="insertBook" parameterType="main.java.bean.BookBean">
+        INSERT  INTO
+        t_book(book_id,user_id,classmate_count)
+        VALUES
+        (#{bookId},#{userId},#{classmateCount});
+    </insert>
+
     <select id="selectAllBookByUserId" resultType="main.java.bean.BookBean" parameterType="String">
         select * from t_book where user_id = #{userId}
     </select>
@@ -25,4 +33,9 @@
     <update id="updateDeleteItemCount" parameterType="String">
         UPDATE t_book SET classmate_count=classmate_count-1 WHERE book_id=#{bookId};
     </update>
+
+    <!--删除同学录-->
+    <delete id="deleteBook" parameterType="main.java.bean.BookBean">
+        DELETE FROM t_book WHERE book_id=#{bookId} AND user_id=#{userId} AND classmate_count=#{classmateCount};
+    </delete>
 </mapper>

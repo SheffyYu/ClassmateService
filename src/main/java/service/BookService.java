@@ -23,6 +23,12 @@ public class BookService {
         System.out.println(bookBean.toString());
     }
 
+    //添加同学录
+    public void createBook(BookBean bookBean){
+        bookDao.insertBook(bookBean);
+        System.out.println("添加同学录完成");
+    }
+
     //获取全部同学录
     public List<BookBean> getAllBookByUserId(String userId){
         return bookDao.selectAllBookByUserId(userId);
@@ -36,6 +42,13 @@ public class BookService {
     //更新删除操作的item count
     public void setDeleteItemCount(String bookId){
         bookDao.updateDeleteItemCount(bookId);
+    }
+
+    //删除同学录
+    public void deleteBook(BookBean bookBean){
+        System.out.println("bookdao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        bookDao.deleteBook(bookBean);
+        System.out.println("shanchuchenggong!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
 }

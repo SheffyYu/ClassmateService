@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import main.java.bean.ClassmateBean;
 import main.java.service.BookService;
 import main.java.service.ClassmateService;
+import main.java.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

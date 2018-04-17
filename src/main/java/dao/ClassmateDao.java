@@ -1,5 +1,6 @@
 package main.java.dao;
 
+import main.java.bean.BookBean;
 import main.java.bean.ClassmateBean;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,9 @@ public interface ClassmateDao {
 
     //删除同学
     void deleteClassmate(ClassmateBean classmateBean);
+
+    //删除同学根据bookId
+    void deleteClassmateByBookId(BookBean bookBean);
 
     //获取所有同学
     List<ClassmateBean> selectAllClassmateByUserId(String userId);

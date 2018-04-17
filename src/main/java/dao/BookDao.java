@@ -15,6 +15,9 @@ public interface BookDao {
     //注册时生成默认同学录
     void insertDefaultBook(BookBean bookBean);
 
+    //添加同学录
+    void insertBook(BookBean bookBean);
+
     //获取全部同学录列表
     List<BookBean> selectAllBookByUserId(String userId);
 
@@ -23,4 +26,7 @@ public interface BookDao {
 
     //更新删除count
     void updateDeleteItemCount(String bookId);
+
+    //删除同学录
+    void deleteBook(BookBean bookBean);
 }

@@ -1,5 +1,6 @@
 package main.java.service;
 
+import main.java.bean.BookBean;
 import main.java.bean.ClassmateBean;
 import main.java.dao.ClassmateDao;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,12 @@ public class ClassmateService {
         System.out.println(classmateBean.toString());
         System.out.println("删除成功");
         return classmateBean;
+    }
+
+    //删除同学
+    public void deleteClassmateByBookId(BookBean bookBean){
+        classmateDao.deleteClassmateByBookId(bookBean);
+        System.out.println("删除成功");
     }
 
     //获取所有同学
