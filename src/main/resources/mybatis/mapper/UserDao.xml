@@ -5,8 +5,8 @@
 <mapper namespace="main.java.dao.UserDao">
 
     <!--获取用户-->
-    <select id="selectByUserId" resultType="main.java.bean.UserBean" parameterType="String">
-        select * from t_user where user_id = #{id}
+    <select id="selectByUserId" parameterType="String" resultType="main.java.bean.UserBean">
+        select * from t_user where user_id = #{userId};
     </select>
     
     <!--添加用户-->

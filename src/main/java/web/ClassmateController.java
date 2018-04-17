@@ -3,9 +3,9 @@ package main.java.web;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import main.java.bean.ClassmateBean;
+import main.java.bean.Share;
 import main.java.service.BookService;
 import main.java.service.ClassmateService;
-import main.java.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +32,7 @@ public class ClassmateController {
         //获取列表
         List<ClassmateBean> classmateList=classmateService.getItemListByBookId(bookId);
         System.out.println("获取目录："+classmateList);
+        System.out.println(Share.userId);
         // 将同学录列表以 json 形式返回到客户端
         return classmateList;
     }

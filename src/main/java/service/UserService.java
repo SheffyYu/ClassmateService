@@ -19,8 +19,11 @@ public class UserService {
 
 
     public UserBean getUserByUserId(String userId){
-        UserBean u=userDao.selectByUserId(userId);
-        return u;
+        System.out.println("USERDAO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        UserBean userBean=userDao.selectByUserId(userId);
+        System.out.println("USERBean!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(userBean);
+        return userBean;
     }
 
     public UserBean createUser(UserBean userBean){

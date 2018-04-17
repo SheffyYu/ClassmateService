@@ -2,6 +2,7 @@ package main.java.web;
 
 import com.google.gson.Gson;
 import main.java.bean.BookBean;
+import main.java.bean.Share;
 import main.java.bean.UserBean;
 import main.java.service.BookService;
 import main.java.service.UserService;
@@ -31,7 +32,10 @@ public class UserController {
     @RequestMapping(value = "/getUserByUserId.action")
     public @ResponseBody UserBean getUserByUserId(String userId){
         // 调用 service ,获取用户名和密码
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(userId);
         UserBean user=userService.getUserByUserId(userId);
+        Share.userId=user.getUserId();
         System.out.println(user);
         // 将用户类以 json 形式返回到客户端
         return user;
