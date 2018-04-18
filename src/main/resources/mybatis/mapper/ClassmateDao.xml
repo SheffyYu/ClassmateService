@@ -2,11 +2,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="main.java.dao.ClassmateDao">
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-    <select id="selectItemListByBookId" resultType="main.java.bean.ClassmateBean" parameterType="String">
-        select * from t_classmate where book_id = #{bookId}
+    <!--获取目录所需列表-->
+    <select id="selectItemListByBookId" resultType="main.java.bean.ClassmateBean" parameterType="main.java.bean.BookBean">
+        select * from t_classmate where book_id = #{bookId} AND user_id=#{userId};
     </select>
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
     <!--添加同学-->
     <insert id="insertClassmate" parameterType="main.java.bean.ClassmateBean">
         insert INTO

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository(value = "classmateDao")
 public interface ClassmateDao {
     //获取个人数据
-    List<ClassmateBean> selectItemListByBookId(String bookId);
+    List<ClassmateBean> selectItemListByBookId(BookBean bookBean);
 
     //添加同学
     void insertClassmate(ClassmateBean classmateBean);

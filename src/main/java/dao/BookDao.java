@@ -21,12 +21,6 @@ public interface BookDao {
     //获取全部同学录列表
     List<BookBean> selectAllBookByUserId(String userId);
 
-    //更新count
-    void updateAddItemCount(String bookId);
-
-    //更新删除count
-    void updateDeleteItemCount(String bookId);
-
     //删除同学录
     void deleteBook(BookBean bookBean);
 }

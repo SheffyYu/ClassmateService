@@ -7,35 +7,25 @@
     <!--添加默认同学录-->
     <insert id="insertDefaultBook" parameterType="main.java.bean.BookBean">
         insert INTO
-        t_book(book_id,user_id,classmate_count)
+        t_book(book_id,user_id,introduce)
         VALUES
-        (#{bookId},#{userId},#{classmateCount});
+        (#{bookId},#{userId},#{introduce});
     </insert>
 
     <!--添加同学录-->
     <insert id="insertBook" parameterType="main.java.bean.BookBean">
         INSERT  INTO
-        t_book(book_id,user_id,classmate_count)
+        t_book(book_id,user_id,introduce)
         VALUES
-        (#{bookId},#{userId},#{classmateCount});
+        (#{bookId},#{userId},#{introduce});
     </insert>
 
     <select id="selectAllBookByUserId" resultType="main.java.bean.BookBean" parameterType="String">
         select * from t_book where user_id = #{userId}
     </select>
 
-    <!--更新添加的count-->
-    <update id="updateAddItemCount" parameterType="String">
-        UPDATE t_book SET classmate_count=classmate_count+1 WHERE book_id=#{bookId};
-    </update>
-
-    <!--更新删除dcount-->
-    <update id="updateDeleteItemCount" parameterType="String">
-        UPDATE t_book SET classmate_count=classmate_count-1 WHERE book_id=#{bookId};
-    </update>
-
     <!--删除同学录-->
     <delete id="deleteBook" parameterType="main.java.bean.BookBean">
-        DELETE FROM t_book WHERE book_id=#{bookId} AND user_id=#{userId} AND classmate_count=#{classmateCount};
+        DELETE FROM t_book WHERE book_id=#{bookId} AND user_id=#{userId};
     </delete>
 </mapper>

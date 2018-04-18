@@ -18,8 +18,8 @@ public class ClassmateService {
     private ClassmateDao classmateDao;
 
     //获取姓名和性别列表
-    public List<ClassmateBean> getItemListByBookId(String bookId){
-        return classmateDao.selectItemListByBookId(bookId);
+    public List<ClassmateBean> getItemListByBookId(BookBean bookBean){
+        return classmateDao.selectItemListByBookId(bookBean);
     }
 
     //添加同学

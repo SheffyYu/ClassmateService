@@ -58,7 +58,7 @@ public class UserController {
         String bookName="我的同学录";
         bookBean.setBookId(bookName);
         bookBean.setUserId(o.getUserId());
-        bookBean.setClassmateCount(0);
+        bookBean.setIntroduce("默认");
         //调用BookService保存数据
         bookService.createDefaultBook(bookBean);
 

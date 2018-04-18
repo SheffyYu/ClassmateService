@@ -49,14 +49,10 @@ public class BookController {
         BookBean book=gson.fromJson(json,BookBean.class);
         System.out.println("begin--delete : " + book);
 
-
         //删除classmate
         classmateService.deleteClassmateByBookId(book);
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //删除book
         bookService.deleteBook(book);
-
-
 
         System.out.println("删除成功");
         return book;

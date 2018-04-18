@@ -2,6 +2,7 @@ package main.java.web;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import main.java.bean.BookBean;
 import main.java.bean.ClassmateBean;
 import main.java.bean.Share;
 import main.java.service.BookService;
@@ -28,11 +29,12 @@ public class ClassmateController {
 
     //获取姓名和性别的列表
     @RequestMapping(value = "/getItemListByBookId.action")
-    public @ResponseBody List<ClassmateBean> getItemListByBookId(String bookId){
+    public @ResponseBody List<ClassmateBean> getItemListByBookId(@RequestBody String json){
+        Gson gson=new Gson();
+        BookBean o=gson.fromJson(json,BookBean.class);
         //获取列表
-        List<ClassmateBean> classmateList=classmateService.getItemListByBookId(bookId);
+        List<ClassmateBean> classmateList=classmateService.getItemListByBookId(o);
         System.out.println("获取目录："+classmateList);
-        System.out.println(Share.userId);
         // 将同学录列表以 json 形式返回到客户端
         return classmateList;
     }
@@ -50,9 +52,6 @@ public class ClassmateController {
         //调用service保存数据
         ClassmateBean classmateBean=classmateService.createClassmate(o);
         System.out.println("添加成功");
-
-        //更新count
-        bookService.setAddItemCount(classmateBean.getBookId());
 
         return classmateBean;
     }
@@ -83,9 +82,6 @@ public class ClassmateController {
         //调用service删除数据
         ClassmateBean classmateBean=classmateService.deleteClassmate(o);
         System.out.println("删除成功");
-
-        //更新count
-        bookService.setDeleteItemCount(classmateBean.getBookId());
 
         return classmateBean;
     }
