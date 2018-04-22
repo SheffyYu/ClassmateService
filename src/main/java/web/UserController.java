@@ -2,7 +2,6 @@ package main.java.web;
 
 import com.google.gson.Gson;
 import main.java.bean.BookBean;
-import main.java.bean.Share;
 import main.java.bean.UserBean;
 import main.java.service.BookService;
 import main.java.service.UserService;
@@ -35,11 +34,33 @@ public class UserController {
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(userId);
         UserBean user=userService.getUserByUserId(userId);
-        Share.userId=user.getUserId();
         System.out.println(user);
         // 将用户类以 json 形式返回到客户端
         return user;
     }
+
+    @RequestMapping(value = "/updatePassword.action")
+    public @ResponseBody UserBean updatePassword(@RequestBody String json){
+        Gson gson=new Gson();
+        UserBean o=gson.fromJson(json,UserBean.class);
+        System.out.println("begin--update : " + o);
+
+        UserBean userBean=userService.updatePassword(o);
+        System.out.println("修改完成");
+        return userBean;
+    }
+
+    @RequestMapping(value = "/updateFavicon.action")
+    public @ResponseBody UserBean updateFavicon(@RequestBody String json){
+        Gson gson=new Gson();
+        UserBean o=gson.fromJson(json,UserBean.class);
+        System.out.println("begin--update : " + o);
+
+        UserBean userBean=userService.updateFavicon(o);
+        System.out.println("修改完成");
+        return userBean;
+    }
+
 
     @RequestMapping(value="/createUser.action")
     public @ResponseBody UserBean createUser(@RequestBody String json){

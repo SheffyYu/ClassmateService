@@ -16,4 +16,14 @@
         VALUES
         (#{userId},#{password});
     </insert>
+
+    <!--修改密码-->
+    <update id="updatePassword" parameterType="main.java.bean.UserBean">
+        UPDATE t_user SET password=#{password} WHERE user_id=#{userId}
+    </update>
+
+    <!--修改头像-->
+    <update id="updateFavicon" parameterType="main.java.bean.UserBean">
+        UPDATE t_user SET favicon=#{favicon} WHERE user_id=#{userId}
+    </update>
 </mapper>

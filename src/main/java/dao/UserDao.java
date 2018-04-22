@@ -13,4 +13,10 @@ public interface UserDao {
 
     //添加用户
     void insertUser(UserBean userBean);
+
+    //修改密码
+    void updatePassword(UserBean userBean);
+
+    //修改头像
+    void updateFavicon(UserBean userBean);
 }

@@ -19,9 +19,7 @@ public class UserService {
 
 
     public UserBean getUserByUserId(String userId){
-        System.out.println("USERDAO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         UserBean userBean=userDao.selectByUserId(userId);
-        System.out.println("USERBean!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(userBean);
         return userBean;
     }
@@ -33,4 +31,20 @@ public class UserService {
        System.out.println("注册成功");
        return userBean;
    }
+
+   //修改密码
+    public UserBean updatePassword(UserBean userBean){
+        userDao.updatePassword(userBean);
+        System.out.println(userBean.toString());
+        System.out.println("修改成功");
+        return userBean;
+    }
+
+    //修改头像
+    public UserBean updateFavicon(UserBean userBean){
+        userDao.updateFavicon(userBean);
+        System.out.println(userBean.toString());
+        System.out.println("修改成功");
+        return userBean;
+    }
 }
