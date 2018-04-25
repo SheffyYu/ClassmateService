@@ -6,7 +6,7 @@
 
     <!--添加默认同学录-->
     <insert id="insertDefaultBook" parameterType="main.java.bean.BookBean">
-        insert INTO
+        INSERT INTO
         t_book(book_id,user_id,introduce)
         VALUES
         (#{bookId},#{userId},#{introduce});
@@ -28,4 +28,19 @@
     <delete id="deleteBook" parameterType="main.java.bean.BookBean">
         DELETE FROM t_book WHERE book_id=#{bookId} AND user_id=#{userId};
     </delete>
+    
+    <!--修改同学录简介-->
+    <update id="updateIntroduce" parameterType="main.java.bean.BookBean">
+        UPDATE t_book SET introduce=#{introduce} WHERE book_id=#{bookId} AND user_id=#{userId};
+    </update>
+
+    <!--修改同学录封面-->
+    <update id="updateFace" parameterType="main.java.bean.BookBean">
+        UPDATE t_book SET face=#{face} WHERE book_id=#{bookId} AND user_id=#{userId};
+    </update>
+
+    <!--修改同学录背景-->
+    <update id="updatePager" parameterType="main.java.bean.BookBean">
+        UPDATE t_book SET pager=#{pager} WHERE book_id=#{bookId} AND user_id=#{userId};
+    </update>
 </mapper>

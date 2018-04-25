@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import main.java.bean.BookBean;
 import main.java.bean.ClassmateBean;
-import main.java.bean.Share;
 import main.java.service.BookService;
 import main.java.service.ClassmateService;
 import org.springframework.stereotype.Controller;

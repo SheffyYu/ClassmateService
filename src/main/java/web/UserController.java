@@ -80,6 +80,8 @@ public class UserController {
         bookBean.setBookId(bookName);
         bookBean.setUserId(o.getUserId());
         bookBean.setIntroduce("默认");
+        bookBean.setFace(0);
+        bookBean.setPager(0);
         //调用BookService保存数据
         bookService.createDefaultBook(bookBean);
 

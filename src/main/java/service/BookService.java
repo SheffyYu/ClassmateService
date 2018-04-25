@@ -40,4 +40,27 @@ public class BookService {
         bookDao.deleteBook(bookBean);
     }
 
+    //修改同学录名称
+    public void updateBookName(List<BookBean> bookBeanList){
+        System.out.println(bookBeanList.get(0));
+        bookDao.deleteBook(bookBeanList.get(0));
+        System.out.println(bookBeanList.get(1));
+        bookDao.insertBook(bookBeanList.get(1));
+    }
+
+    //修改同学录简介
+    public void updateIntroduce(BookBean bookBean){
+        bookDao.updateIntroduce(bookBean);
+    }
+
+    //修改封面
+    public void updateFace(BookBean bookBean){
+        bookDao.updateFace(bookBean);
+    }
+
+    //修改背景
+    public void updatePager(BookBean bookBean){
+        bookDao.updatePager(bookBean);
+    }
+
 }

@@ -8,6 +8,24 @@ public class BookBean {
     public String BookId;
     public String UserId;
     public String introduce;
+    public int face;
+    public int pager;
+
+    public int getFace() {
+        return face;
+    }
+
+    public void setFace(int face) {
+        this.face = face;
+    }
+
+    public int getPager() {
+        return pager;
+    }
+
+    public void setPager(int pager) {
+        this.pager = pager;
+    }
 
     public String getIntroduce() {
         return introduce;
@@ -39,6 +57,8 @@ public class BookBean {
                 "BookId=" + BookId +
                 ", UserId=" + UserId +
                 ",introduce="+introduce+
+                ",face="+face+
+                ",pager="+pager+
                 "]";
     }
 }

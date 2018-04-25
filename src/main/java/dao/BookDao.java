@@ -23,4 +23,14 @@ public interface BookDao {
 
     //删除同学录
     void deleteBook(BookBean bookBean);
+
+    //修改同学录简介
+    void updateIntroduce(BookBean bookBean);
+
+    //修改封面
+    void updateFace(BookBean bookBean);
+
+    //修改内部背景
+    void updatePager(BookBean bookBean);
+
 }
