@@ -12,4 +12,10 @@ import java.util.List;
 public interface NotesDao {
     //获取全部记录
     List<NotesBean> selectAllNotes(String userId);
+
+    //添加记录
+    void insertNotes(NotesBean notesBean);
+
+    //删除记录
+    void deleteNotes(NotesBean notesBean);
 }

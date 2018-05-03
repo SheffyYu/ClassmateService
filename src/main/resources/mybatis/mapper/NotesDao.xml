@@ -9,4 +9,17 @@
         select * from t_notes where user_id = #{userId};
     </select>
 
+    <!--添加记录-->
+    <insert id="insertNotes" parameterType="main.java.bean.NotesBean">
+        INSERT INTO
+        t_notes(user_id,title,content,date)
+        VALUES
+        (#{userId},#{title},#{content},#{date});
+    </insert>
+
+    <!--删除记录-->
+    <delete id="deleteNotes" parameterType="main.java.bean.NotesBean">
+        DELETE FROM t_notes WHERE user_id=#{userId} AND title=#{title} AND content=#{content} AND date=#{date};
+    </delete>
+
 </mapper>

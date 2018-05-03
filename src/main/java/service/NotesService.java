@@ -22,4 +22,16 @@ public class NotesService {
         System.out.println(notesBeanList);
         return notesBeanList;
     }
+
+    //添加记录
+    public void addNotes(NotesBean notesBean){
+        notesDao.insertNotes(notesBean);
+        System.out.println("记录添加成功");
+    }
+
+    //删除记录
+    public void deleteNotes(NotesBean notesBean){
+        notesDao.deleteNotes(notesBean);
+        System.out.println("记录删除成功");
+    }
 }
